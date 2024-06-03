@@ -30,3 +30,9 @@
 *.exe
 *.out
 *.app
+
+# Unrelated Folders
+.vscode
+# 3rdparty
+# build
+# deploy

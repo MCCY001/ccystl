@@ -1,0 +1,16 @@
+cmake_minimum_required(VERSION 3.29)
+project(yccstl)
+
+set(CMAKE_CXX_STANDARD 20)
+
+set(DEPLOY_DIR ${CMAKE_SOURCE_DIR}/deploy)
+set(MAIN_PROJECT_DIR ${CMAKE_SOURCE_DIR}/yccstl)
+set(EXTERNAL_HEADER_DIR ${CMAKE_SOURCE_DIR}/include)
+
+set(LIB_DIR ${DEPLOY_DIR}/lib)
+set(EXEC_DIR ${DEPLOY_DIR}/bin)
+
+set(LIBRARY_OUTPUT_PATH ${LIB_DIR})
+set(EXECUTABLE_OUTPUT_PATH ${EXEC_DIR})
+
+add_subdirectory(${MAIN_PROJECT_DIR})
