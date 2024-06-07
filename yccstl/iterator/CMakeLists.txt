@@ -1,20 +1,18 @@
 cmake_minimum_required(VERSION 3.29)
-project(test_module)
+project(iterator)
 
-set(TEST_MODULE_SRC
-    ${TEST_MODULE_DIR}/test_module.cpp
-    ${TEST_MODULE_DIR}/calculation/add.cpp
-    ${TEST_MODULE_DIR}/calculation/mult.cpp
+set(ITERATOR_SRC
+    ${ITERATOR_DIR}/iterator.cpp
 )
 
 add_library(${PROJECT_NAME}
     STATIC
-    ${TEST_MODULE_SRC}
+    ${ITERATOR_SRC}
 )
 
 target_include_directories(${PROJECT_NAME}
     PRIVATE
-    ${TEST_MODULE_DIR}
+    ${ITERATOR_DIR}
 )
 
 target_include_directories(${PROJECT_NAME}

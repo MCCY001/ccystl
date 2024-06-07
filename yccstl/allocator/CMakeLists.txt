@@ -1,20 +1,18 @@
 cmake_minimum_required(VERSION 3.29)
-project(test_module)
+project(allocator)
 
-set(TEST_MODULE_SRC
-    ${TEST_MODULE_DIR}/test_module.cpp
-    ${TEST_MODULE_DIR}/calculation/add.cpp
-    ${TEST_MODULE_DIR}/calculation/mult.cpp
+set(ALLOCATOR_SRC
+    ${ALLOCATOR_DIR}/allocator.cpp
 )
 
 add_library(${PROJECT_NAME}
     STATIC
-    ${TEST_MODULE_SRC}
+    ${ALLOCATOR_SRC}
 )
 
 target_include_directories(${PROJECT_NAME}
     PRIVATE
-    ${TEST_MODULE_DIR}
+    ${ALLOCATOR_DIR}
 )
 
 target_include_directories(${PROJECT_NAME}

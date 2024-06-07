@@ -1,13 +1,28 @@
-#include <stdio.h>
-#include <iostream>
-#include "yccstl/yccstl.h"
+#include<iostream>
+#include "utils/utils.h"
+
+template<typename T>
+void print(T& t) {
+    std::cout << "lvalue" << std::endl;
+}
+
+template<typename T>
+void print(T&& t) {
+    std::cout << "rvalue" << std::endl;
+}
+
+template<typename T>
+void testForward(T&& v) {
+    print(yccstl::forward<int>(1));
+    print(v);
+    print(yccstl::forward<T>(v));
+    print(yccstl::move(v));
+}
 
 int main() {
-    int a = 20;
-    int b = 12;
-    int c = 5;
-    printf("helloworld\n");
-    printf("%d\n", OutsideAdd(a, b, c));
-    printf("%f\n", OutsideMult(3.0, 4.0, 5.0));
+    testForward(1);
+    std::cout << "======================" << std::endl;
+    int x = 1;
+    testForward(x);
     return 0;
 }

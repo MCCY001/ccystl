@@ -1,20 +1,18 @@
 cmake_minimum_required(VERSION 3.29)
-project(test_module)
+project(adapter)
 
-set(TEST_MODULE_SRC
-    ${TEST_MODULE_DIR}/test_module.cpp
-    ${TEST_MODULE_DIR}/calculation/add.cpp
-    ${TEST_MODULE_DIR}/calculation/mult.cpp
+set(ADAPTER_SRC
+    ${ADAPTER_DIR}/adapter.cpp
 )
 
 add_library(${PROJECT_NAME}
     STATIC
-    ${TEST_MODULE_SRC}
+    ${ADAPTER_SRC}
 )
 
 target_include_directories(${PROJECT_NAME}
     PRIVATE
-    ${TEST_MODULE_DIR}
+    ${ADAPTER_DIR}
 )
 
 target_include_directories(${PROJECT_NAME}

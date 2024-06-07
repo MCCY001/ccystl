@@ -1,20 +1,18 @@
 cmake_minimum_required(VERSION 3.29)
-project(test_module)
+project(container)
 
-set(TEST_MODULE_SRC
-    ${TEST_MODULE_DIR}/test_module.cpp
-    ${TEST_MODULE_DIR}/calculation/add.cpp
-    ${TEST_MODULE_DIR}/calculation/mult.cpp
+set(CONTAINER_SRC
+    ${CONTAINER_DIR}/container.cpp
 )
 
 add_library(${PROJECT_NAME}
     STATIC
-    ${TEST_MODULE_SRC}
+    ${CONTAINER_SRC}
 )
 
 target_include_directories(${PROJECT_NAME}
     PRIVATE
-    ${TEST_MODULE_DIR}
+    ${CONTAINER_DIR}
 )
 
 target_include_directories(${PROJECT_NAME}

@@ -33,6 +33,6 @@
 
 # Unrelated Folders
 .vscode
-# 3rdparty
-# build
-# deploy
+3rdparty
+build
+deploy
