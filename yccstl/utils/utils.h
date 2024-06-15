@@ -18,13 +18,13 @@ namespace yccstl {
     // T&&利用了forwarding reference的性质，传入参数为左值时T推导成左值引用（int&），为右值时T推导成对应类型(int)，
     // 之后利用引用折叠实现完美转发
 
-    // 完美转发(接受左值引用为参数)
+    // 完美转发左值
     template<class T>
     T&& forward(typename std::remove_reference<T>::type& arg) noexcept {
         return static_cast<T&&>(arg);
     }
 
-    // 完美转发(接受右值引用为参数)
+    // 完美转发右值
     template<class T>
     T&& forward(typename std::remove_reference<T>::type&& arg) noexcept {
         static_assert(!std::is_lvalue_reference<T>::value, "bad forward");

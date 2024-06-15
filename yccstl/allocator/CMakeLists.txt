@@ -12,10 +12,12 @@ add_library(${PROJECT_NAME}
 
 target_include_directories(${PROJECT_NAME}
     PRIVATE
-    ${ALLOCATOR_DIR}
+    ${ITERATOR_DIR}
 )
 
 target_include_directories(${PROJECT_NAME}
     PUBLIC
+    ${MAIN_PROJECT_DIR}
+    ${ALLOCATOR_DIR}
     ${EXTERNAL_HEADER_DIR}
 )
