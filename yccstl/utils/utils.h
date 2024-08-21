@@ -54,13 +54,12 @@ namespace yccstl {
         yccstl::swap_range(a, a + N, b);
     }
 
-
     // pair
 
     template<class Ty1, class Ty2>
     struct pair {
-        typedef Ty1 first_type;
-        typedef Ty2 second_type;
+        using first_type = Ty1;
+        using second_type = Ty2;
 
         first_type first;
         second_type second;

@@ -13,6 +13,7 @@ add_library(${PROJECT_NAME}
 target_include_directories(${PROJECT_NAME}
     PRIVATE
     ${ALGORITHM_DIR}
+    ${ITERATOR_SRC}
 )
 
 target_include_directories(${PROJECT_NAME}
