@@ -3,7 +3,7 @@
 
 #include <new>
 
-#include "utils/type_traits.h"
+#include "internal/type_traits.h"
 #include "iterator/iterator.h"
 
 #ifdef _MSC_VER

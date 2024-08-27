@@ -10,25 +10,61 @@ yccstl 包含六大核心组件，每个都承担特定职能：容器（contain
 
 ## 容器（yccstl/container）
 
+### 关联容器（yccstl/container/associative_container）
+
+- `"map.h"`（待完成）
+- `"set.h"`（待完成）
+- `"multimap.h"`（待完成）
+- `"multiset.h"`（待完成）
+
+### 序列容器（yccstl/container/sequence_container）
+
+- `"array.h"`（待完成）
+- `"deque.h"`（待完成）
+- `"list.h"`（待完成）
+- `"forward_list.h"`（待完成）
+- `"vector.h"`（待完成）
+
+### 无序容器（yccstl/container/unordered_container）
+
+- `"algobase.h"`
+
 ## 算法（yccstl/algorithm）
 
 - `"algobase.h"`
 - `"algo.h"`（待完成）
+- `"algorithm.h"`（待完成）
+- `"heap_algo.h"`（待完成）
+- `"set_algo.h"`（待完成）
+- `"numeric.h"`
 
 ## 迭代器（yccstl/iterator）
 
+- `"iterator.h"`
+
 ## 适配器（yccstl/adapter）
 
+- `"priority_queue.h"`（待完成）
+- `"queue.h"`（待完成）
+- `"stack.h"`（待完成）
+
 ## 函数对象（yccstl/functor）
+
+- `"functional.h"`
 
 ## 内存分配器（yccstl/allocator）
 
 - `"allocator.h"`
 - `"construct.h"`
 
+## 内部文件（yccstl/internal）
+
+- `"type_traits.h"`（待完成）
+- `"hash_table.h"`（待完成）
+- `"node.h"`（待完成）
+- `"rb_tree.h"`（待完成）
+
 ## 通用（yccstl/utils）
 
 - `"utils.h"`
-- `"type_traits.h"`
 - `"exceptdef.h"`
-- `"functional.h"`

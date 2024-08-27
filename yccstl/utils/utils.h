@@ -3,7 +3,7 @@
 
 #include <cstddef>
 
-#include "type_traits.h"
+#include "internal/type_traits.h"
 
 namespace yccstl {
 
