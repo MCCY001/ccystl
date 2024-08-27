@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 3.29)
-project(yccstl)
+project(ccystl)
 
 set(CMAKE_CXX_STANDARD 20)
 
-set(MAIN_PROJECT_DIR ${CMAKE_SOURCE_DIR}/yccstl)
+set(MAIN_PROJECT_DIR ${CMAKE_SOURCE_DIR}/ccystl)
 set(EXTERNAL_HEADER_DIR ${CMAKE_SOURCE_DIR}/include)
 set(DEPLOY_DIR ${CMAKE_SOURCE_DIR}/deploy)
 

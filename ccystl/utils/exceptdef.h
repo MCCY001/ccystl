@@ -1,13 +1,13 @@
-#ifndef YCCSTL_EXCEPTDEF_H_
-#define YCCSTL_EXCEPTDEF_H_
+#ifndef CCYSTL_EXCEPTDEF_H_
+#define CCYSTL_EXCEPTDEF_H_
 
 #include <stdexcept>
 
 #include <cassert>
 
-namespace yccstl {
+namespace ccystl {
 
-#define YCCSTL_DEBUG(expr) \
+#define CCYSTL_DEBUG(expr) \
   assert(expr)  
 
 #define THROW_LENGTH_ERROR_IF(expr, what) \
@@ -19,6 +19,6 @@ namespace yccstl {
 #define THROW_RUNTIME_ERROR_IF(expr, what) \
   if ((expr)) throw std::runtime_error((what))
 
-} // namepsace yccstl
+} // namepsace ccystl
 
-#endif // !YCCSTL_EXCEPTDEF_H_
+#endif // !CCYSTL_EXCEPTDEF_H_

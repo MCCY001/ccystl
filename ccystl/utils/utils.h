@@ -1,11 +1,11 @@
-#ifndef YCCSTL_UTILS_H_
-#define YCCSTL_UTILS_H_
+#ifndef CCYSTL_UTILS_H_
+#define CCYSTL_UTILS_H_
 
 #include <cstddef>
 
 #include "internal/type_traits.h"
 
-namespace yccstl {
+namespace ccystl {
 
     // 加 typename 的目的是为了让编译器识别std::remove_reference<T>::type&&是一个类型而非静态成员变量
 
@@ -36,22 +36,22 @@ namespace yccstl {
     // 利用移动语义交换资源
     template<class Tp>
     void swap(Tp& lhs, Tp& rhs) {
-        auto tmp = (yccstl::move(lhs));
-        lhs = yccstl::move(rhs);
-        rhs = yccstl::move(tmp);
+        auto tmp = (ccystl::move(lhs));
+        lhs = ccystl::move(rhs);
+        rhs = ccystl::move(tmp);
     }
 
     template<class ForwardIter1, class ForwardIter2>
     ForwardIter2 swap_range(ForwardIter1 first1, ForwardIter1 last1, ForwardIter2 first2) {
         for (;first1 != last1; ++first1, (void)++first2) {
-            yccstl::swap(*first1, *first2);
+            ccystl::swap(*first1, *first2);
         }
         return first2;
     }
 
     template<class Tp, size_t N>
     void swap(Tp(&a)[N], Tp(&b)[N]) {
-        yccstl::swap_range(a, a + N, b);
+        ccystl::swap_range(a, a + N, b);
     }
 
     // pair
@@ -107,8 +107,8 @@ namespace yccstl {
             std::is_convertible<Other1&&, Ty1>::value&&
             std::is_convertible<Other2&&, Ty2>::value, int>::type = 0>
         constexpr pair(Other1&& a, Other2&& b)
-            : first(yccstl::forward<Other1>(a)),
-            second(yccstl::forward<Other2>(b)) {
+            : first(ccystl::forward<Other1>(a)),
+            second(ccystl::forward<Other2>(b)) {
         }
 
         // 显式移动构造函数
@@ -119,8 +119,8 @@ namespace yccstl {
             (!std::is_convertible<Other1, Ty1>::value ||
                 !std::is_convertible<Other2, Ty2>::value), int>::type = 0>
         explicit constexpr pair(Other1&& a, Other2&& b)
-            : first(yccstl::forward<Other1>(a)),
-            second(yccstl::forward<Other2>(b)) {
+            : first(ccystl::forward<Other1>(a)),
+            second(ccystl::forward<Other2>(b)) {
         }
 
         // 隐式拷贝构造函数
@@ -153,8 +153,8 @@ namespace yccstl {
             std::is_convertible<Other1, Ty1>::value&&
             std::is_convertible<Other2, Ty2>::value, int>::type = 0>
         constexpr pair(pair<Other1, Other2>&& other)
-            : first(yccstl::forward<Other1>(other.first)),
-            second(yccstl::forward<Other2>(other.second)) {
+            : first(ccystl::forward<Other1>(other.first)),
+            second(ccystl::forward<Other2>(other.second)) {
         }
 
         // 显式移动构造函数
@@ -165,8 +165,8 @@ namespace yccstl {
             (!std::is_convertible<Other1, Ty1>::value ||
                 !std::is_convertible<Other2, Ty2>::value), int>::type = 0>
         explicit constexpr pair(pair<Other1, Other2>&& other)
-            : first(yccstl::forward<Other1>(other.first)),
-            second(yccstl::forward<Other2>(other.second)) {
+            : first(ccystl::forward<Other1>(other.first)),
+            second(ccystl::forward<Other2>(other.second)) {
         }
 
         pair& operator=(const pair& rhs) {
@@ -179,8 +179,8 @@ namespace yccstl {
 
         pair& operator=(pair&& rhs) {
             if (this != &rhs) {
-                first = yccstl::move(rhs.first);
-                second = yccstl::move(rhs.second);
+                first = ccystl::move(rhs.first);
+                second = ccystl::move(rhs.second);
             }
             return *this;
         }
@@ -189,8 +189,8 @@ namespace yccstl {
 
         void swap(pair& other) {
             if (this != other) {
-                yccstl::swap(first, other.first);
-                yccstl::swap(second, other.second);
+                ccystl::swap(first, other.first);
+                ccystl::swap(second, other.second);
             }
         }
     };
@@ -232,8 +232,8 @@ namespace yccstl {
 
     template<class Ty1, class Ty2>
     pair<Ty1, Ty2> make_pair(Ty1&& first, Ty2&& second) {
-        return pair<Ty1, Ty2>(yccstl::forward<Ty1>(first), yccstl::forward<Ty2>(second));
+        return pair<Ty1, Ty2>(ccystl::forward<Ty1>(first), ccystl::forward<Ty2>(second));
     }
 }
 
-#endif // !YCCSTL_UTILS_H_
+#endif // !CCYSTL_UTILS_H_

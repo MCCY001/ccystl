@@ -1,12 +1,12 @@
-#ifndef YCCSTL_ALGOBASE_H_
-#define YCCSTL_ALGOBASE_H_
+#ifndef CCYSTL_ALGOBASE_H_
+#define CCYSTL_ALGOBASE_H_
 
 #include <cstring>
 
 #include "iterator/iterator.h"
 #include "utils/utils.h"
 
-namespace yccstl {
+namespace ccystl {
 #ifdef max
 #pragma message("#undefing marco max")
 #undef max
@@ -45,7 +45,7 @@ namespace yccstl {
     /*****************************************************************************************/
     template <class FIter1, class FIter2>
     void iter_swap(FIter1 lhs, FIter2 rhs) {
-        yccstl::swap(*lhs, *rhs);
+        ccystl::swap(*lhs, *rhs);
     }
 
     /*****************************************************************************************/
@@ -55,7 +55,7 @@ namespace yccstl {
     // input_iterator_tag 版本
     template <class InputIter, class OutputIter>
     OutputIter unchecked_copy_cat(InputIter first, InputIter last, OutputIter result,
-        yccstl::input_iterator_tag) {
+        ccystl::input_iterator_tag) {
         for (;first != last; ++first, ++result) {
             *result = *first;
         }
@@ -65,7 +65,7 @@ namespace yccstl {
     // ramdom_access_iterator_tag 版本
     template <class RandomIter, class OutputIter>
     OutputIter unchecked_copy_cat(RandomIter first, RandomIter last, OutputIter result,
-        yccstl::random_access_iterator_tag) {
+        ccystl::random_access_iterator_tag) {
         for (auto n = last - first; n > 0;--n, ++first, ++result) {
             *result = *first;
         }
@@ -101,7 +101,7 @@ namespace yccstl {
     // unchecked_copy_backward_cat 的 bidirectional_iterator_tag 版本
     template <class BidirectionalIter1, class BidirectionalIter2>
     BidirectionalIter2 unchecked_copy_backward_cat(BidirectionalIter1 first, BidirectionalIter1 last,
-        BidirectionalIter2 result, yccstl::bidirectional_iterator_tag) {
+        BidirectionalIter2 result, ccystl::bidirectional_iterator_tag) {
         while (first != last)
             *--result = *--last;
         return result;
@@ -110,7 +110,7 @@ namespace yccstl {
     // unchecked_copy_backward_cat 的 random_access_iterator_tag 版本
     template <class RandomIter1, class BidirectionalIter2>
     BidirectionalIter2 unchecked_copy_backward_cat(RandomIter1 first, RandomIter1 last,
-        BidirectionalIter2 result, yccstl::random_access_iterator_tag) {
+        BidirectionalIter2 result, ccystl::random_access_iterator_tag) {
         for (auto n = last - first; n > 0; --n)
             *--result = *--last;
         return result;
@@ -162,22 +162,22 @@ namespace yccstl {
     // 返回一个 pair 分别指向拷贝结束的尾部
     /*****************************************************************************************/
     template <class InputIter, class Size, class OutputIter>
-    yccstl::pair<InputIter, OutputIter> unchecked_copy_n(InputIter first, Size n, OutputIter result, yccstl::input_iterator_tag) {
+    ccystl::pair<InputIter, OutputIter> unchecked_copy_n(InputIter first, Size n, OutputIter result, ccystl::input_iterator_tag) {
         for (; n > 0; --n, ++first, ++result) {
             *result = *first;
         }
-        return yccstl::pair<InputIter, OutputIter>(first, result);
+        return ccystl::pair<InputIter, OutputIter>(first, result);
     }
 
     template <class RandomIter, class Size, class OutputIter>
-    yccstl::pair<RandomIter, OutputIter> unchecked_copy_n(RandomIter first, Size n, OutputIter result,
-        yccstl::random_access_iterator_tag) {
+    ccystl::pair<RandomIter, OutputIter> unchecked_copy_n(RandomIter first, Size n, OutputIter result,
+        ccystl::random_access_iterator_tag) {
         auto last = first + n;
-        return yccstl::pair<RandomIter, OutputIter>(last, yccstl::copy(first, last, result));
+        return ccystl::pair<RandomIter, OutputIter>(last, ccystl::copy(first, last, result));
     }
 
     template <class InputIter, class Size, class OutputIter>
-    yccstl::pair<InputIter, OutputIter> copy_n(InputIter first, Size n, OutputIter result) {
+    ccystl::pair<InputIter, OutputIter> copy_n(InputIter first, Size n, OutputIter result) {
         return unchecked_copy_n(first, n, result, iterator_category(first));
     }
 
@@ -188,9 +188,9 @@ namespace yccstl {
     // input_iterator_tag 版本
     template <class InputIter, class OutputIter>
     OutputIter unchecked_move_cat(InputIter first, InputIter last, OutputIter result,
-        yccstl::input_iterator_tag) {
+        ccystl::input_iterator_tag) {
         for (; first != last; ++first, ++result) {
-            *result = yccstl::move(*first);
+            *result = ccystl::move(*first);
         }
         return result;
     }
@@ -198,9 +198,9 @@ namespace yccstl {
     // ramdom_access_iterator_tag 版本
     template <class RandomIter, class OutputIter>
     OutputIter unchecked_move_cat(RandomIter first, RandomIter last, OutputIter result,
-        yccstl::random_access_iterator_tag) {
+        ccystl::random_access_iterator_tag) {
         for (auto n = last - first; n > 0; --n, ++first, ++result) {
-            *result = yccstl::move(*first);
+            *result = ccystl::move(*first);
         }
         return result;
     }
@@ -236,9 +236,9 @@ namespace yccstl {
     template <class BidirectionalIter1, class BidirectionalIter2>
     BidirectionalIter2
         unchecked_move_backward_cat(BidirectionalIter1 first, BidirectionalIter1 last,
-            BidirectionalIter2 result, yccstl::bidirectional_iterator_tag) {
+            BidirectionalIter2 result, ccystl::bidirectional_iterator_tag) {
         while (first != last)
-            *--result = yccstl::move(*--last);
+            *--result = ccystl::move(*--last);
         return result;
     }
 
@@ -246,9 +246,9 @@ namespace yccstl {
     template <class RandomIter1, class RandomIter2>
     RandomIter2
         unchecked_move_backward_cat(RandomIter1 first, RandomIter1 last,
-            RandomIter2 result, yccstl::random_access_iterator_tag) {
+            RandomIter2 result, ccystl::random_access_iterator_tag) {
         for (auto n = last - first; n > 0; --n)
-            *--result = yccstl::move(*--last);
+            *--result = ccystl::move(*--last);
         return result;
     }
 
@@ -341,7 +341,7 @@ namespace yccstl {
     /*****************************************************************************************/
     template <class ForwardIter, class T>
     void fill_cat(ForwardIter first, ForwardIter last, const T& value,
-        yccstl::forward_iterator_tag) {
+        ccystl::forward_iterator_tag) {
         for (; first != last; ++first) {
             *first = value;
         }
@@ -349,7 +349,7 @@ namespace yccstl {
 
     template <class RandomIter, class T>
     void fill_cat(RandomIter first, RandomIter last, const T& value,
-        yccstl::random_access_iterator_tag) {
+        ccystl::random_access_iterator_tag) {
         fill_n(first, last - first, value);
     }
 
@@ -399,7 +399,7 @@ namespace yccstl {
         const auto len1 = last1 - first1;
         const auto len2 = last2 - first2;
         // 先比较相同长度的部分
-        const auto result = std::memcmp(first1, first2, yccstl::min(len1, len2));
+        const auto result = std::memcmp(first1, first2, ccystl::min(len1, len2));
         // 若相等，长度较长的比较大
         return result != 0 ? result < 0 : len1 < len2;
     }
@@ -409,24 +409,24 @@ namespace yccstl {
     // 平行比较两个序列，找到第一处失配的元素，返回一对迭代器，分别指向两个序列中失配的元素
     /*****************************************************************************************/
     template <class InputIter1, class InputIter2>
-    yccstl::pair<InputIter1, InputIter2>
+    ccystl::pair<InputIter1, InputIter2>
         mismatch(InputIter1 first1, InputIter1 last1, InputIter2 first2) {
         while (first1 != last1 && *first1 == *first2) {
             ++first1;
             ++first2;
         }
-        return yccstl::pair<InputIter1, InputIter2>(first1, first2);
+        return ccystl::pair<InputIter1, InputIter2>(first1, first2);
     }
 
     // 重载版本使用函数对象 comp 代替比较操作
     template <class InputIter1, class InputIter2, class Compred>
-    yccstl::pair<InputIter1, InputIter2>
+    ccystl::pair<InputIter1, InputIter2>
         mismatch(InputIter1 first1, InputIter1 last1, InputIter2 first2, Compred comp) {
         while (first1 != last1 && comp(*first1, *first2)) {
             ++first1;
             ++first2;
         }
-        return yccstl::pair<InputIter1, InputIter2>(first1, first2);
+        return ccystl::pair<InputIter1, InputIter2>(first1, first2);
     }
-} // namespace yccstl
-#endif // !YCCSTL_ALGOBASE_H_
+} // namespace ccystl
+#endif // !CCYSTL_ALGOBASE_H_

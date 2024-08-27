@@ -1,11 +1,11 @@
-#ifndef YCCSTL_FUNCTIONAL_H_
-#define YCCSTL_FUNCTIONAL_H_
+#ifndef CCYSTL_FUNCTIONAL_H_
+#define CCYSTL_FUNCTIONAL_H_
 
-// 这个头文件包含了 yccstl 的函数对象与哈希函数
+// 这个头文件包含了 ccystl 的函数对象与哈希函数
 
 #include <cstddef>
 
-namespace yccstl {
+namespace ccystl {
     // 定义一元函数的参数型别和返回值型别
     template<typename Arg, typename Result>
     struct unarg_function {
@@ -173,44 +173,44 @@ namespace yccstl {
     // 哈希函数 
     // 对于 整型数据（如 int, unsigned int, char 等）,
     // 直接返回原值（通过 static_cast<size_t>(val) 转换）
-#define YCCSTL_TRIVIAL_HASH_FCN(Type)                 \
+#define CCYSTL_TRIVIAL_HASH_FCN(Type)                 \
     template<>                                        \
     struct hash<Type> {                               \
         size_t operator()(Type val) const noexcept {  \
     return static_cast<size_t>(val); }                \
     };
 
-    YCCSTL_TRIVIAL_HASH_FCN(bool)
+    CCYSTL_TRIVIAL_HASH_FCN(bool)
 
-        YCCSTL_TRIVIAL_HASH_FCN(char)
+        CCYSTL_TRIVIAL_HASH_FCN(char)
 
-        YCCSTL_TRIVIAL_HASH_FCN(signed char)
+        CCYSTL_TRIVIAL_HASH_FCN(signed char)
 
-        YCCSTL_TRIVIAL_HASH_FCN(unsigned char)
+        CCYSTL_TRIVIAL_HASH_FCN(unsigned char)
 
-        YCCSTL_TRIVIAL_HASH_FCN(wchar_t)
+        CCYSTL_TRIVIAL_HASH_FCN(wchar_t)
 
-        YCCSTL_TRIVIAL_HASH_FCN(char16_t)
+        CCYSTL_TRIVIAL_HASH_FCN(char16_t)
 
-        YCCSTL_TRIVIAL_HASH_FCN(char32_t)
+        CCYSTL_TRIVIAL_HASH_FCN(char32_t)
 
-        YCCSTL_TRIVIAL_HASH_FCN(short)
+        CCYSTL_TRIVIAL_HASH_FCN(short)
 
-        YCCSTL_TRIVIAL_HASH_FCN(unsigned short)
+        CCYSTL_TRIVIAL_HASH_FCN(unsigned short)
 
-        YCCSTL_TRIVIAL_HASH_FCN(int)
+        CCYSTL_TRIVIAL_HASH_FCN(int)
 
-        YCCSTL_TRIVIAL_HASH_FCN(unsigned int)
+        CCYSTL_TRIVIAL_HASH_FCN(unsigned int)
 
-        YCCSTL_TRIVIAL_HASH_FCN(long)
+        CCYSTL_TRIVIAL_HASH_FCN(long)
 
-        YCCSTL_TRIVIAL_HASH_FCN(unsigned long)
+        CCYSTL_TRIVIAL_HASH_FCN(unsigned long)
 
-        YCCSTL_TRIVIAL_HASH_FCN(long long)
+        CCYSTL_TRIVIAL_HASH_FCN(long long)
 
-        YCCSTL_TRIVIAL_HASH_FCN(unsigned long long)
+        CCYSTL_TRIVIAL_HASH_FCN(unsigned long long)
 
-#undef YCCSTL_TRIVIAL_HASH_FCN
+#undef CCYSTL_TRIVIAL_HASH_FCN
 
 
         // 对于浮点数，逐位哈希
@@ -253,6 +253,6 @@ namespace yccstl {
             return val == 0.0f ? 0 : bitwise_hash((const unsigned char*)&val, sizeof(long double));
         }
     };
-} // namespace yccstl
+} // namespace ccystl
 
-#endif // !YCCSTL_FUNCTIONAL_H_
+#endif // !CCYSTL_FUNCTIONAL_H_

@@ -1,9 +1,9 @@
-#ifndef YCCSTL_TYPE_TRAITS_H_
-#define YCCSTL_TYPE_TRAITS_H_
+#ifndef CCYSTL_TYPE_TRAITS_H_
+#define CCYSTL_TYPE_TRAITS_H_
 
 #include <type_traits>
 
-namespace yccstl {
+namespace ccystl {
     template<class T, T v>
     struct y_integral_constant {
         static constexpr T value = v;
@@ -27,11 +27,11 @@ namespace yccstl {
     struct pair;
 
     template<class T>
-    struct is_pair :yccstl::y_false_type {};
+    struct is_pair :ccystl::y_false_type {};
 
     template<class T1, class T2>
-    struct is_pair<yccstl::pair<T1, T2>> :yccstl::y_true_type {};
-} // namespace yccstl
+    struct is_pair<ccystl::pair<T1, T2>> :ccystl::y_true_type {};
+} // namespace ccystl
 
 
-#endif // !YCCSTL_TYPE_TRAITS_H_
+#endif // !CCYSTL_TYPE_TRAITS_H_

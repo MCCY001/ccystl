@@ -17,8 +17,8 @@
 #include "functor/functional.h"
 
 int main() {
-    yccstl::iterator<int, int> iterator;
-    yccstl::allocator<int> alloc;
+    ccystl::iterator<int, int> iterator;
+    ccystl::allocator<int> alloc;
 
-    int* int_ptr = yccstl::allocator<int>::allocate();
+    int* int_ptr = ccystl::allocator<int>::allocate();
 }

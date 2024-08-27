@@ -1,9 +1,9 @@
-#ifndef YCCSTL_NUMERIC_H_
-#define YCCSTL_NUMERIC_H_
+#ifndef CCYSTL_NUMERIC_H_
+#define CCYSTL_NUMERIC_H_
 
 #include "iterator/iterator.h"
 
-namespace yccstl {
+namespace ccystl {
     /*****************************************************************************************/
     // accumulate
     // 版本1：以初值 init 对每个元素进行累加
@@ -127,5 +127,5 @@ namespace yccstl {
         }
         return ++result;
     }
-} // namespace yccstl
-#endif // !YCCSTL_NUMERIC_H_
+} // namespace ccystl
+#endif // !CCYSTL_NUMERIC_H_

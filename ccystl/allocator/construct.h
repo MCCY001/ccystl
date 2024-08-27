@@ -1,5 +1,5 @@
-#ifndef YCCSTL_CONSTRUCT_H_
-#define YCCSTL_CONSTRUCT_H_
+#ifndef CCYSTL_CONSTRUCT_H_
+#define CCYSTL_CONSTRUCT_H_
 
 #include <new>
 
@@ -11,7 +11,7 @@
 #pragma warning(disable : 4100)  // unused parameter
 #endif // _MSC_VER
 
-namespace yccstl {
+namespace ccystl {
     // placement new
 
     template<class Ty>
@@ -26,7 +26,7 @@ namespace yccstl {
 
     template<class Ty, class... Args>
     void construct(Ty* ptr, Args&&... args) {
-        ::new ((void*)ptr) Ty(yccstl::forward<Args>(args)...);
+        ::new ((void*)ptr) Ty(ccystl::forward<Args>(args)...);
     }
 
     template<class Ty>
@@ -59,7 +59,7 @@ namespace yccstl {
             typename iterator_traits<ForwardIter>::value_type>{});
     }
 
-} // namespace yccstl
+} // namespace ccystl
 
 #ifdef _MSC_VER
 #pragma warning(pop)

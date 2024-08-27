@@ -1,10 +1,10 @@
-#ifndef YCCSTL_ALLOCATOR_H_
-#define YCCSTL_ALLOCATOR_H_
+#ifndef CCYSTL_ALLOCATOR_H_
+#define CCYSTL_ALLOCATOR_H_
 
 #include "allocator/construct.h"
 #include "utils/utils.h"
 
-namespace yccstl {
+namespace ccystl {
 
     template <class T>
     class allocator {
@@ -63,35 +63,35 @@ namespace yccstl {
 
     template <class T>
     void allocator<T>::construct(T* ptr) {
-        yccstl::construct(ptr);
+        ccystl::construct(ptr);
     }
 
     template <class T>
     void allocator<T>::construct(T* ptr, const T& value) {
-        yccstl::construct(ptr, value);
+        ccystl::construct(ptr, value);
     }
 
     template <class T>
     void allocator<T>::construct(T* ptr, T&& value) {
-        yccstl::construct(ptr, yccstl::move(value));
+        ccystl::construct(ptr, ccystl::move(value));
     }
 
     template <class T>
     template <class ...Args>
     void allocator<T>::construct(T* ptr, Args&& ...args) {
-        yccstl::construct(ptr, yccstl::forward<Args>(args)...);
+        ccystl::construct(ptr, ccystl::forward<Args>(args)...);
     }
 
     template <class T>
     void allocator<T>::destroy(T* ptr) {
-        yccstl::destroy(ptr);
+        ccystl::destroy(ptr);
     }
 
     template <class T>
     void allocator<T>::destroy(T* first, T* last) {
-        yccstl::destroy(first, last);
+        ccystl::destroy(first, last);
     }
 
-} // namespace yccstl
+} // namespace ccystl
 
 #endif
