@@ -1,8 +1,8 @@
 #ifndef CCYSTL_ALLOCATOR_H_
 #define CCYSTL_ALLOCATOR_H_
 
-#include "allocator/construct.h"
-#include "utils/utils.h"
+#include "ccystl/allocator/construct.h"
+#include "ccystl/utils/utils.h"
 
 namespace ccystl {
 

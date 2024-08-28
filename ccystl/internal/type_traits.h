@@ -22,7 +22,6 @@ namespace ccystl {
     using y_false_type = y_bool_constant<false>;
 
     // type traits for pair
-
     template<class T1, class T2>
     struct pair;
 
@@ -32,6 +31,5 @@ namespace ccystl {
     template<class T1, class T2>
     struct is_pair<ccystl::pair<T1, T2>> :ccystl::y_true_type {};
 } // namespace ccystl
-
 
 #endif // !CCYSTL_TYPE_TRAITS_H_
