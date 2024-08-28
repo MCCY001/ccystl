@@ -1,7 +1,7 @@
 #ifndef CCYSTL_NUMERIC_H_
 #define CCYSTL_NUMERIC_H_
 
-#include "iterator/iterator.h"
+#include "ccystl/iterator/iterator.h"
 
 namespace ccystl {
     /*****************************************************************************************/

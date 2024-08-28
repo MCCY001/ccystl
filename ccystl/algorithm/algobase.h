@@ -3,10 +3,11 @@
 
 #include <cstring>
 
-#include "iterator/iterator.h"
-#include "utils/utils.h"
+#include "ccystl/iterator/iterator.h"
+#include "ccystl/utils/utils.h"
 
 namespace ccystl {
+
 #ifdef max
 #pragma message("#undefing marco max")
 #undef max
@@ -54,7 +55,9 @@ namespace ccystl {
     /*****************************************************************************************/
     // input_iterator_tag 版本
     template <class InputIter, class OutputIter>
-    OutputIter unchecked_copy_cat(InputIter first, InputIter last, OutputIter result,
+    OutputIter unchecked_copy_cat(
+        InputIter first, InputIter last,
+        OutputIter result,
         ccystl::input_iterator_tag) {
         for (;first != last; ++first, ++result) {
             *result = *first;
@@ -62,9 +65,11 @@ namespace ccystl {
         return result;
     }
 
-    // ramdom_access_iterator_tag 版本
+    // random_access_iterator_tag 版本
     template <class RandomIter, class OutputIter>
-    OutputIter unchecked_copy_cat(RandomIter first, RandomIter last, OutputIter result,
+    OutputIter unchecked_copy_cat(
+        RandomIter first, RandomIter last,
+        OutputIter result,
         ccystl::random_access_iterator_tag) {
         for (auto n = last - first; n > 0;--n, ++first, ++result) {
             *result = *first;
@@ -195,7 +200,7 @@ namespace ccystl {
         return result;
     }
 
-    // ramdom_access_iterator_tag 版本
+    // random_access_iterator_tag 版本
     template <class RandomIter, class OutputIter>
     OutputIter unchecked_move_cat(RandomIter first, RandomIter last, OutputIter result,
         ccystl::random_access_iterator_tag) {
@@ -429,4 +434,5 @@ namespace ccystl {
         return ccystl::pair<InputIter1, InputIter2>(first1, first2);
     }
 } // namespace ccystl
+
 #endif // !CCYSTL_ALGOBASE_H_

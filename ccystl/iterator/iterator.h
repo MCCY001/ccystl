@@ -1,12 +1,12 @@
 #ifndef CCYSTL_ITERATOR_H_
 #define CCYSTL_ITERATOR_H_
 
+// 输入迭代器、输出迭代器、前向迭代器、双向迭代器、随机访问迭代器
+
 #include <cstddef>
-#include "utils/utils.h"
+#include "ccystl/utils/utils.h"
 
 namespace ccystl {
-
-    // 输入迭代器、输出迭代器、前向迭代器、双向迭代器、随机访问迭代器
 
     struct input_iterator_tag {};
     struct output_iterator_tag {};
@@ -15,8 +15,11 @@ namespace ccystl {
     struct random_access_iterator_tag : public bidirectional_iterator_tag {};
 
     // 迭代器模板
-    template <class Category, class T, class Distance = ptrdiff_t,
-        class Pointer = T*, class Reference = T&>
+    template <class Category,
+        class T,
+        class Distance = ptrdiff_t,
+        class Pointer = T*,
+        class Reference = T&>
     struct iterator {
         typedef Category iterator_category;
         typedef T value_type;
@@ -39,8 +42,10 @@ namespace ccystl {
             char a;
             char b;
         };
-        template<class U> static two test(...);
-        template<class U> static char test(typename U::iterator_category* = nullptr);
+        template<class U>
+        static two test(...);
+        template<class U>
+        static char test(typename U::iterator_category* = nullptr);
     public:
         static const bool value = sizeof(test<T>(nullptr)) == sizeof(char);
     };
@@ -50,7 +55,8 @@ namespace ccystl {
 
     template<class Iterator>
     struct iterator_traits_impl<Iterator, true> :
-        public iterator_traits_impl<Iterator,
+        public iterator_traits_impl<
+        Iterator,
         std::is_convertible<typename Iterator::iterator_category, input_iterator_tag>::value ||
         std::is_convertible<typename Iterator::iterator_category, output_iterator_tag>::value> {
     };

@@ -3,8 +3,8 @@
 
 #include <new>
 
-#include "internal/type_traits.h"
-#include "iterator/iterator.h"
+#include "ccystl/internal/type_traits.h"
+#include "ccystl/iterator/iterator.h"
 
 #ifdef _MSC_VER
 #pragma warning(push)
@@ -12,7 +12,8 @@
 #endif // _MSC_VER
 
 namespace ccystl {
-    // placement new
+
+    // 构造对象 placement new
 
     template<class Ty>
     void construct(Ty* ptr) {
@@ -23,6 +24,8 @@ namespace ccystl {
     void construct(Ty1* ptr, const Ty2& value) {
         ::new ((void*)ptr) Ty1(value);
     }
+
+    // 析构对象
 
     template<class Ty, class... Args>
     void construct(Ty* ptr, Args&&... args) {
