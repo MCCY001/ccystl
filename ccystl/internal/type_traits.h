@@ -11,7 +11,7 @@ namespace ccystl {
         using type = y_integral_constant;
 
         // 常量转换操作符，将y_integral_constant类型转换成value_type类型
-        constexpr operator value_type() const noexcept { return value; }
+        constexpr explicit operator value_type() const noexcept { return value; }
         constexpr value_type operator()() const noexcept { return value; }
     };
 
