@@ -84,7 +84,7 @@ public:
 
     map& operator=(const map& rhs) = default;
 
-    map& operator=(map&& rhs)  noexcept {
+    map& operator=(map&& rhs) noexcept {
         tree_ = ccystl::move(rhs.tree_);
         return *this;
     }

@@ -22,7 +22,8 @@ add_executable(${PROJECT_NAME} main_test.cpp
         ../ccystl/container/unordered_container/unordered_map.h
         ../ccystl/container/unordered_container/unordered_multimap.h
         ../ccystl/container/unordered_container/unordered_multiset.h
-        ../ccystl/container/unordered_container/unordered_set.h)
+        ../ccystl/container/unordered_container/unordered_set.h
+        ../ccystl/internal/node.h)
 
 target_include_directories(${PROJECT_NAME}
     PRIVATE

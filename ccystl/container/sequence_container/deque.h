@@ -76,10 +76,10 @@ namespace ccystl {
             :cur(v), first(*n), last(*n + buffer_size), node(n) {
         }
 
-        deque_iterator(const iterator& rhs)
+        explicit deque_iterator(const iterator& rhs)
             :cur(rhs.cur), first(rhs.first), last(rhs.last), node(rhs.node) {
         }
-        deque_iterator(iterator&& rhs) noexcept
+        explicit deque_iterator(iterator&& rhs) noexcept
             :cur(rhs.cur), first(rhs.first), last(rhs.last), node(rhs.node) {
             rhs.cur = nullptr;
             rhs.first = nullptr;

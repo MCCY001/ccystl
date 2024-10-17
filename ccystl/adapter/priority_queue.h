@@ -25,8 +25,8 @@ namespace ccystl {
  * @tparam Compare 用于比较元素优先级的函数对象类型，默认为
  * `ccystl::less<typename Container::value_type>`。
  */
-template <class T, class Container = ccystl::vector<T>,
-          class Compare = ccystl::less<typename Container::value_type>>
+template <class T, class Container = vector<T>,
+          class Compare = less<typename Container::value_type>>
 class priority_queue {
 public:
     using container_type = Container; ///< 底层容器的类型。

@@ -32,7 +32,9 @@
 *.app
 
 # Unrelated Folders
-.vscode
+.cache
+.idea
 3rdparty
 build
 deploy
+

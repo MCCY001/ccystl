@@ -13,6 +13,7 @@
 //   * insert
 
 #include "ccystl/internal/rb_tree.h"
+#include "ccystl/functor/functional.h"
 
 namespace ccystl {
 // 模板类 multimap，键值允许重复
@@ -28,7 +29,7 @@ public:
 
     // 定义一个 functor，用来进行元素比较
     class value_compare : public binary_function<value_type, value_type, bool> {
-        friend class multimap<Key, T, Compare>;
+        friend class multimap;
 
     private:
         Compare comp;
@@ -160,7 +161,7 @@ public:
     }
 
     // 容量相关
-    bool empty() const noexcept {
+    [[nodiscard]] bool empty() const noexcept {
         return tree_.empty();
     }
 
