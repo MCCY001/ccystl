@@ -69,10 +69,10 @@ struct list_node : public list_node_base<T> {
 
     list_node() = default;
 
-    list_node(const T& v)
+    explicit list_node(const T& v)
         : value(v) { }
 
-    list_node(T&& v)
+    explicit list_node(T&& v)
         : value(ccystl::move(v)) { }
 
     base_ptr as_base() {
